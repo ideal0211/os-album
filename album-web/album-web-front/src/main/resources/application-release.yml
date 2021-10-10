@@ -1,0 +1,13 @@
+server:
+  port: 8401
+spring:
+  profiles:
+    include: datasource-release,service-release
+  output:
+    ansi:
+      enabled: always
+logging:
+  level:
+    club.xyes.zkh.retail: debug
+#    club.xyes.os.album.front: debug
+#    club.xyes.os.album.repository.mapper: debug

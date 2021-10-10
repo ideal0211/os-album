@@ -1,0 +1,7 @@
+${AnsiColor.BLUE} _                          _  ${AnsiColor.WHITE} _____   ___  _____  __
+${AnsiColor.BLUE}| |                        | | ${AnsiColor.WHITE}|  _  | /   |/ __  \/  |
+${AnsiColor.BLUE}| |     _____   _____ _ __ | |_${AnsiColor.WHITE} \ V / / /| |`' / /'`| |
+${AnsiColor.BLUE}| |    / _ \ \ / / _ \ '_ \| __${AnsiColor.WHITE}|/ _ \/ /_| |  / /   | |
+${AnsiColor.BLUE}| |___|  __/\ V /  __/ | | | |_${AnsiColor.WHITE}| |_| \___  |./ /____| |_
+${AnsiColor.BLUE}\_____/\___| \_/ \___|_| |_|\__${AnsiColor.WHITE}\_____/   |_/\_____/\___/
+${AnsiColor.YELLOW}------------2019-08-09 build for 小龙侠优品-------------

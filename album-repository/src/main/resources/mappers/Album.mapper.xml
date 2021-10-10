@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xyes.os.album.repository.mapper.AlbumMapper">
+    <sql id="columns">
+        a.id          a_id,
+        a.category_id a_category_id,
+        a.title       a_title,
+        a.sub_title   a_sub_title,
+        a.description a_description,
+        a.covers      a_covers,
+        a.image_json  a_image_json,
+        a.order_num   a_order_num,
+        a.show_on_home a_show_on_home,
+        a.create_time a_create_time,
+        a.update_time a_update_time,
+        a.deleted     a_deleted
+    </sql>
+    <sql id="select">
+        select
+        <include refid="columns"/>
+        from t_album as a
+        where a.deleted = false
+    </sql>
+    <resultMap id="rm_base" type="club.xyes.os.album.commons.entity.Album">
+        <id column="a_id" property="id"/>
+        <result column="a_category_id" property="categoryId"/>
+        <result column="a_title" property="title"/>
+        <result column="a_sub_title" property="subTitle"/>
+        <result column="a_description" property="description"/>
+        <result column="a_covers" property="covers"/>
+        <result column="a_image_json" property="imageJson"/>
+        <result column="a_order_num" property="orderNum"/>
+        <result column="a_show_on_home" property="showOnHome"/>
+        <result column="a_create_time" property="createTime"/>
+        <result column="a_update_time" property="updateTime"/>
+        <result column="a_deleted" property="deleted"/>
+    </resultMap>
+    <update id="updateCategoryIdByCategoryId">
+        update t_album
+        set category_id=#{newCategory}
+        where category_id = #{oldCategory}
+    </update>
+    <select id="selectAllOrderByCreateTimeDesc" resultMap="rm_base">
+        <include refid="select"/>
+        order by a.create_time desc
+        limit #{max}
+    </select>
+    <select id="maxUpdateTime" resultType="date">
+        select max(update_time)
+        from t_album
+    </select>
+    <select id="selectHomeAlbums" parameterType="java.lang.String" resultMap="rm_base">
+        <include refid="select"/>
+        <if test="title != null">
+            AND (a.title LIKE CONCAT('%',#{title},'%') OR a.sub_title LIKE CONCAT('%',#{title},'%') OR a.description LIKE CONCAT('%',#{title},'%'))
+        </if>
+        order by a.order_num desc
+    </select>
+    <select id="selectByCategory" resultMap="rm_base">
+        <include refid="select"/>
+        and a.category_id=#{categoryId} order by a.order_num desc
+    </select>
+</mapper>

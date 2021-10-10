@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "app.workspace",
+      "type": "java.lang.String",
+      "description": "APP 工作目录."
+    },
+    {
+      "name": "app.cdnServer",
+      "type": "java.lang.String",
+      "description": "CDN 服务器前缀."
+    },
+    {
+      "name": "wechat.appId",
+      "type": "java.lang.String",
+      "description": "appId."
+    },
+    {
+      "name": "wechat.secret",
+      "type": "java.lang.String",
+      "description": "secret."
+    }
+  ]
+}

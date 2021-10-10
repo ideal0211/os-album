@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+pagehelper:
+  helper-dialect: mysql
+mybatis:
+  mapper-locations: classpath:mappers/*.mapper.xml
+  type-aliases-package: club.xyes.os.album.commons.entity

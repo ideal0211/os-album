@@ -1,0 +1,11 @@
+server:
+  port: 8401
+spring:
+  profiles:
+    include: datasource-dev,service-dev
+  output:
+    ansi:
+      enabled: always
+logging:
+  level:
+    club.xyes.os.album: debug

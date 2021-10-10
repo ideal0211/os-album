@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.2.100:3306/db_album?userSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=GMT%2B8
+    username: root
+    password: 156001

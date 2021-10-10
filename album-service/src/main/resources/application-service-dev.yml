@@ -1,0 +1,3 @@
+app:
+  workspace: D:\var\www\album
+  cdnServer: http://localhost/album

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xyes.os.album.repository.mapper.UserMapper">
+    <sql id="columns">
+        u.id          u_id,
+        u.nickname    u_nickname,
+        u.avatar      u_avatar,
+        u.open_id     u_open_id,
+        u.role        u_role,
+        u.create_time u_create_time,
+        u.update_time u_update_time,
+        u.deleted     u_deleted
+    </sql>
+    <sql id="select">
+        select
+        <include refid="columns"/>
+        from t_user as u
+        where deleted=false
+    </sql>
+    <resultMap id="rm_base" type="club.xyes.os.album.commons.entity.User">
+        <id column="u_id" property="id"/>
+        <result column="u_nickname" property="nickname"/>
+        <result column="u_avatar" property="avatar"/>
+        <result column="u_open_id" property="openId"/>
+        <result column="u_role" property="role"/>
+        <result column="u_create_time" property="createTime"/>
+        <result column="u_update_time" property="updateTime"/>
+        <result column="u_deleted" property="deleted"/>
+    </resultMap>
+    <select id="selectByOpenId" resultMap="rm_base">
+        <include refid="select"/>
+        and (u.open_id=#{openId}) limit 1
+    </select>
+</mapper>

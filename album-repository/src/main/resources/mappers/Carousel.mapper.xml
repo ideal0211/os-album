@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xyes.os.album.repository.mapper.CarouselMapper">
+    <sql id="columns">
+        c.id          c_id,
+        c.title       c_title,
+        c.image       c_image,
+        c.album_id    c_album_id,
+        c.create_time c_create_time,
+        c.update_time c_update_time,
+        c.deleted     c_deleted
+    </sql>
+    <sql id="select">
+        select
+        <include refid="columns"/>
+        from t_carousel as c;
+    </sql>
+    <resultMap id="rm_base" type="club.xyes.os.album.commons.entity.Carousel">
+        <id column="c_id" property="id"/>
+        <result column="c_title" property="title"/>
+        <result column="c_image" property="image"/>
+        <result column="c_album_id" property="albumId"/>
+        <result column="c_create_time" property="createTime"/>
+        <result column="c_update_time" property="updateTime"/>
+        <result column="c_deleted" property="deleted"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.xyes.os.album.repository.mapper.AlbumCategoryMapper">
+    <sql id="columns">
+        ac.id          ac_id,
+        ac.name        ac_name,
+        ac.order_num   ac_order_num,
+        ac.create_time ac_create_time,
+        ac.update_time ac_update_time,
+        ac.deleted     ac_deleted
+    </sql>
+    <sql id="select">
+        select
+        <include refid="columns"/>
+        from t_album_category as ac
+        where ac.deleted = false;
+    </sql>
+    <resultMap id="rm_base" type="club.xyes.os.album.commons.entity.AlbumCategory">
+        <id column="ac_id" property="id"/>
+        <result column="ac_name" property="name"/>
+        <result column="ac_order_num" property="orderNum"/>
+        <result column="ac_create_time" property="createTime"/>
+        <result column="ac_update_time" property="updateTime"/>
+        <result column="ac_deleted" property="deleted"/>
+    </resultMap>
+</mapper>

@@ -1,0 +1,3 @@
+app:
+  workspace: /var/www/os-album-cdn.xyes.club
+  cdnServer: http://os-album-cdn.xyes.club
